@@ -1,0 +1,92 @@
+  [1m[36mActiveRecord::InternalMetadata Pluck (3.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+Started GET "/books/new" for 127.0.0.1 at 2023-08-30 16:57:20 +0000
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 26.6ms | Allocations: 1824)
+  Rendered books/new.html.erb within layouts/application (Duration: 45.7ms | Allocations: 2410)
+  Rendered layout layouts/application.html.erb (Duration: 2545.6ms | Allocations: 93325)
+Completed 200 OK in 2713ms (Views: 2574.3ms | ActiveRecord: 8.5ms | Allocations: 101751)
+Started POST "/books" for 127.0.0.1 at 2023-08-30 16:57:23 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"title"=>"harry potter"}, "commit"=>"Create Book"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Create (11.2ms)[0m  [1m[32mINSERT INTO "books" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "harry potter"], ["created_at", "2023-08-30 16:57:23.388522"], ["updated_at", "2023-08-30 16:57:23.388522"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/books/1
+Completed 302 Found in 18ms (ActiveRecord: 11.6ms | Allocations: 1682)
+Started GET "/books/1" for 127.0.0.1 at 2023-08-30 16:57:23 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_book.html.erb (Duration: 7.5ms | Allocations: 198)
+  Rendered books/show.html.erb within layouts/application (Duration: 36.2ms | Allocations: 1279)
+  Rendered layout layouts/application.html.erb (Duration: 38.0ms | Allocations: 2718)
+Completed 200 OK in 53ms (Views: 39.0ms | ActiveRecord: 0.7ms | Allocations: 3644)
+Started GET "/books" for 127.0.0.1 at 2023-08-30 16:57:23 +0000
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/_book.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered books/index.html.erb within layouts/application (Duration: 9.6ms | Allocations: 768)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 2153)
+Completed 200 OK in 21ms (Views: 11.8ms | ActiveRecord: 0.4ms | Allocations: 2482)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/books/new" for 127.0.0.1 at 2023-08-30 17:01:43 +0000
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 23.2ms | Allocations: 1822)
+  Rendered books/new.html.erb within layouts/application (Duration: 41.4ms | Allocations: 2408)
+  Rendered layout layouts/application.html.erb (Duration: 766.2ms | Allocations: 35683)
+Completed 200 OK in 893ms (Views: 790.0ms | ActiveRecord: 16.0ms | Allocations: 43618)
+Started POST "/books" for 127.0.0.1 at 2023-08-30 17:01:44 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"title"=>"harry potter"}, "commit"=>"Create Book"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "harry potter"], ["created_at", "2023-08-30 17:01:44.257225"], ["updated_at", "2023-08-30 17:01:44.257225"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/books/2
+Completed 302 Found in 8ms (ActiveRecord: 1.1ms | Allocations: 1709)
+Started GET "/books/2" for 127.0.0.1 at 2023-08-30 17:01:44 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_book.html.erb (Duration: 6.8ms | Allocations: 198)
+  Rendered books/show.html.erb within layouts/application (Duration: 28.0ms | Allocations: 1251)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 2690)
+Completed 200 OK in 41ms (Views: 30.5ms | ActiveRecord: 0.7ms | Allocations: 3614)
+Started GET "/books" for 127.0.0.1 at 2023-08-30 17:01:44 +0000
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/_book.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered books/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 750)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 2135)
+Completed 200 OK in 20ms (Views: 10.9ms | ActiveRecord: 0.5ms | Allocations: 2464)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m

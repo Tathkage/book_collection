@@ -19,6 +19,14 @@ class BooksController < ApplicationController
   def edit
   end
 
+  # GET /books/1/confirm_delete
+  def confirm_delete
+    @book = Book.find(params[:id])
+    respond_to do |format|
+      format.html # Render the HTML template (confirm_delete.html.erb)
+    end
+  end
+
   # POST /books or /books.json
   def create
     @book = Book.new(book_params)
