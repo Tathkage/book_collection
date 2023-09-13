@@ -5665,3 +5665,420 @@ Processing by UserBooksController#index as HTML
 Completed 200 OK in 115ms (Views: 93.1ms | ActiveRecord: 2.2ms | Allocations: 8164)
 
 
+Started GET "/" for 172.17.0.1 at 2023-09-13 02:33:13 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (12.1ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" INNER JOIN "users" ON "users"."id" = "user_books"."user_id" INNER JOIN "books" ON "books"."id" = "user_books"."book_id" WHERE NOT ("users"."id" IS NULL AND "books"."id" IS NULL)[0m
+  ↳ app/views/user_books/index.html.erb:15
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered user_books/index.html.erb within layouts/application (Duration: 360.0ms | Allocations: 12588)
+  Rendered layout layouts/application.html.erb (Duration: 361.8ms | Allocations: 12689)
+Completed 500 Internal Server Error in 1544ms (ActiveRecord: 44.2ms | Allocations: 24503)
+
+
+  
+ActionView::Template::Error (undefined method `last' for #<ActiveRecord::QueryMethods::WhereChain:0x00007fc3b8c6df80 @scope=#<ActiveRecord::Relation [#<User id: 1, username: "Tath", created_at: "2023-09-12 20:14:57.793191000 +0000", updated_at: "2023-09-12 20:14:57.793191000 +0000">, #<User id: 2, username: "Umer", created_at: "2023-09-12 20:50:13.576265000 +0000", updated_at: "2023-09-12 20:50:13.576265000 +0000">]>>
+
+        <td>'.freeze;@output_buffer.append=( User.where().last.username );@output_buffer.safe_append='</td>
+                                                         ^^^^^):
+    14:   <tbody>
+    15:     <% @user_books.each do |user_book| %>
+    16:       <tr>
+    17:         <td><%= User.where().last.username %></td>
+    18:         <td><%= Book.where().last.title %></td>
+    19:         <td><%= link_to 'Show', user_book %></td>
+    20:         <td><%= link_to 'Edit', edit_user_book_path(user_book) %></td>
+  
+app/views/user_books/index.html.erb:17
+app/views/user_books/index.html.erb:15
+Started GET "/" for 172.17.0.1 at 2023-09-13 02:35:09 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (1.7ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" INNER JOIN "users" ON "users"."id" = "user_books"."user_id" INNER JOIN "books" ON "books"."id" = "user_books"."book_id" WHERE NOT ("users"."id" IS NULL AND "books"."id" IS NULL)[0m
+  ↳ app/views/user_books/index.html.erb:15
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:17
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 ORDER BY "books"."id" DESC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:18
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" DESC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:17
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 ORDER BY "books"."id" DESC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:17
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 ORDER BY "books"."id" DESC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:18
+  Rendered user_books/index.html.erb within layouts/application (Duration: 56.4ms | Allocations: 10225)
+  Rendered layout layouts/application.html.erb (Duration: 2349.5ms | Allocations: 45025)
+Completed 200 OK in 2437ms (Views: 2368.5ms | ActiveRecord: 5.0ms | Allocations: 46153)
+
+
+Started GET "/" for 172.17.0.1 at 2023-09-13 02:36:16 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (1.2ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" INNER JOIN "users" ON "users"."id" = "user_books"."user_id" INNER JOIN "books" ON "books"."id" = "user_books"."book_id" WHERE NOT ("users"."id" IS NULL AND "books"."id" IS NULL)[0m
+  ↳ app/views/user_books/index.html.erb:15
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:17
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 ORDER BY "books"."id" DESC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:18
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" DESC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:17
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 ORDER BY "books"."id" DESC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:17
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 ORDER BY "books"."id" DESC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:18
+  Rendered user_books/index.html.erb within layouts/application (Duration: 84.2ms | Allocations: 6164)
+  Rendered layout layouts/application.html.erb (Duration: 379.3ms | Allocations: 8746)
+Completed 200 OK in 493ms (Views: 408.5ms | ActiveRecord: 5.5ms | Allocations: 9814)
+
+
+Started GET "/user_books/new" for 172.17.0.1 at 2023-09-13 02:37:38 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UserBooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC[0m
+  ↳ app/views/user_books/_form.html.erb:18:in `map'
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC[0m
+  ↳ app/views/user_books/_form.html.erb:23:in `map'
+  Rendered user_books/_form.html.erb (Duration: 392.9ms | Allocations: 6432)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 496.5ms | Allocations: 6729)
+  Rendered layout layouts/application.html.erb (Duration: 591.1ms | Allocations: 9044)
+Completed 200 OK in 662ms (Views: 591.5ms | ActiveRecord: 2.4ms | Allocations: 9470)
+
+
+Started POST "/user_books" for 172.17.0.1 at 2023-09-13 02:38:27 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UserBooksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_book"=>{"user_id"=>"1", "book_id"=>"7"}, "commit"=>"Create User book"}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_books_controller.rb:29:in `block in create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_books_controller.rb:29:in `block in create'
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_books_controller.rb:29:in `block in create'
+  [1m[36mUserBook Create (18.0ms)[0m  [1m[32mINSERT INTO "user_books" ("user_id", "book_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["book_id", 7], ["created_at", "2023-09-13 02:38:27.772584"], ["updated_at", "2023-09-13 02:38:27.772584"]]
+  ↳ app/controllers/user_books_controller.rb:29:in `block in create'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/user_books_controller.rb:29:in `block in create'
+Redirected to http://localhost:3000/user_books/4
+Completed 302 Found in 212ms (ActiveRecord: 24.3ms | Allocations: 8106)
+
+
+Started GET "/user_books/4" for 172.17.0.1 at 2023-09-13 02:38:28 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UserBooksController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mUserBook Load (1.0ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" WHERE "user_books"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/user_books_controller.rb:65:in `set_user_book'
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/show.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_books/_user_book.html.erb:4
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/user_books/_user_book.html.erb:9
+  Rendered user_books/_user_book.html.erb (Duration: 36.2ms | Allocations: 1845)
+  Rendered user_books/show.html.erb within layouts/application (Duration: 152.6ms | Allocations: 3149)
+  Rendered layout layouts/application.html.erb (Duration: 374.3ms | Allocations: 5451)
+Completed 200 OK in 497ms (Views: 375.5ms | ActiveRecord: 3.1ms | Allocations: 6996)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2023-09-13 02:38:32 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.7ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" INNER JOIN "users" ON "users"."id" = "user_books"."user_id" INNER JOIN "books" ON "books"."id" = "user_books"."book_id" WHERE NOT ("users"."id" IS NULL AND "books"."id" IS NULL)[0m
+  ↳ app/views/user_books/index.html.erb:15
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:17
+  [1m[36mBook Load (37.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 ORDER BY "books"."id" DESC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:18
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" DESC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:17
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 ORDER BY "books"."id" DESC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:18
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:17
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 ORDER BY "books"."id" DESC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:18
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:17
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 ORDER BY "books"."id" DESC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/user_books/index.html.erb:18
+  Rendered user_books/index.html.erb within layouts/application (Duration: 132.2ms | Allocations: 7051)
+  Rendered layout layouts/application.html.erb (Duration: 312.7ms | Allocations: 9249)
+Completed 200 OK in 350ms (Views: 271.2ms | ActiveRecord: 43.9ms | Allocations: 9653)
+
+
+Started GET "/users" for 172.17.0.1 at 2023-09-13 02:39:13 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 27.9ms | Allocations: 160)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 16)
+  Rendered users/index.html.erb within layouts/application (Duration: 113.2ms | Allocations: 1848)
+  Rendered layout layouts/application.html.erb (Duration: 284.5ms | Allocations: 4268)
+Completed 200 OK in 331ms (Views: 290.4ms | ActiveRecord: 0.8ms | Allocations: 5143)
+
+
+Started GET "/users" for 172.17.0.1 at 2023-09-13 02:42:47 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 27.3ms | Allocations: 2224)
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | Allocations: 2312)
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 0.0ms | Allocations: 3258)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass
+
+'.freeze;     @user.each do |user| 
+                   ^^^^^):
+    11:   </thead>
+    12: 
+    13:   <tbody>
+    14:     <% @user.each do |user| %>
+    15:       <tr>
+    16:         <td><%= User.where(id: user.user_id).last.username %></td>
+    17:         <td><%= link_to 'Show', user %></td>
+  
+app/views/users/index.html.erb:14
+Started GET "/users" for 172.17.0.1 at 2023-09-13 02:43:14 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 80.2ms | Allocations: 6540)
+  Rendered layout layouts/application.html.erb (Duration: 84.4ms | Allocations: 6626)
+Completed 500 Internal Server Error in 195ms (ActiveRecord: 0.7ms | Allocations: 7565)
+
+
+  
+ActionView::Template::Error (undefined method `user_id' for #<User id: 1, username: "Tath", created_at: "2023-09-12 20:14:57.793191000 +0000", updated_at: "2023-09-12 20:14:57.793191000 +0000">
+Did you mean?  user_book_ids):
+    13:   <tbody>
+    14:     <% @users.each do |user| %>
+    15:       <tr>
+    16:         <td><%= User.where(id: user.user_id).last.username %></td>
+    17:         <td><%= link_to 'Show', user %></td>
+    18:         <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    19:         <td><%= link_to 'Destroy', user_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/users/index.html.erb:16
+app/views/users/index.html.erb:14
+Started GET "/users" for 172.17.0.1 at 2023-09-13 02:43:44 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 21.2ms | Allocations: 5952)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 6038)
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 0.3ms | Allocations: 6976)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `users' for #<ActionView::Base:0x0000000000cff8>
+
+        <td>'.freeze;@output_buffer.append=( User.where(id: users.user_id).last.username );@output_buffer.safe_append='</td>
+                                                            ^^^^^
+Did you mean?  user
+               @users):
+    13:   <tbody>
+    14:     <% @users.each do |user| %>
+    15:       <tr>
+    16:         <td><%= User.where(id: users.user_id).last.username %></td>
+    17:         <td><%= link_to 'Show', users %></td>
+    18:         <td><%= link_to 'Edit', edit_user_path(users) %></td>
+    19:         <td><%= link_to 'Destroy', users, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/users/index.html.erb:16
+app/views/users/index.html.erb:14
+Started GET "/users" for 172.17.0.1 at 2023-09-13 02:44:14 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 24.0ms | Allocations: 6484)
+  Rendered layout layouts/application.html.erb (Duration: 25.3ms | Allocations: 6569)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 0.4ms | Allocations: 7494)
+
+
+  
+ActionView::Template::Error (undefined method `user_id' for #<User id: 1, username: "Tath", created_at: "2023-09-12 20:14:57.793191000 +0000", updated_at: "2023-09-12 20:14:57.793191000 +0000">
+Did you mean?  user_book_ids):
+    13:   <tbody>
+    14:     <% @users.each do |user| %>
+    15:       <tr>
+    16:         <td><%= User.where(id: user.user_id).last.username %></td>
+    17:         <td><%= link_to 'Show', users %></td>
+    18:         <td><%= link_to 'Edit', edit_user_path(users) %></td>
+    19:         <td><%= link_to 'Destroy', users, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/users/index.html.erb:16
+app/views/users/index.html.erb:14
+Started GET "/users" for 172.17.0.1 at 2023-09-13 02:44:18 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 5999)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 6078)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 0.6ms | Allocations: 6346)
+
+
+  
+ActionView::Template::Error (undefined method `user_id' for #<User id: 1, username: "Tath", created_at: "2023-09-12 20:14:57.793191000 +0000", updated_at: "2023-09-12 20:14:57.793191000 +0000">
+Did you mean?  user_book_ids):
+    13:   <tbody>
+    14:     <% @users.each do |user| %>
+    15:       <tr>
+    16:         <td><%= User.where(id: user.user_id).last.username %></td>
+    17:         <td><%= link_to 'Show', users %></td>
+    18:         <td><%= link_to 'Edit', edit_user_path(users) %></td>
+    19:         <td><%= link_to 'Destroy', users, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/users/index.html.erb:16
+app/views/users/index.html.erb:14
+Started GET "/users" for 172.17.0.1 at 2023-09-13 02:44:58 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 16.2ms | Allocations: 155)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 16)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered users/index.html.erb within layouts/application (Duration: 82.5ms | Allocations: 6906)
+  Rendered layout layouts/application.html.erb (Duration: 84.2ms | Allocations: 6991)
+Completed 500 Internal Server Error in 164ms (ActiveRecord: 1.0ms | Allocations: 7894)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user_book' for #<ActionView::Base:0x0000000000d430>
+
+        <td>'.freeze;@output_buffer.append=( link_to 'Destroy', user_book, method: :delete, data: { confirm: 'Are you sure?' } );@output_buffer.safe_append='</td>
+                                                                ^^^^^^^^^
+Did you mean?  user_book_url):
+    25:         <td><%= render user %></td>
+    26:         <td><%= link_to 'Show', user %></td>
+    27:         <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    28:         <td><%= link_to 'Destroy', user_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    29:       </tr>
+    30:     <% end %>
+    31:   </tbody>
+  
+app/views/users/index.html.erb:28
+app/views/users/index.html.erb:23
+Started GET "/users" for 172.17.0.1 at 2023-09-13 02:45:11 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 22.1ms | Allocations: 155)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 16)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 15)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 15)
+  Rendered users/index.html.erb within layouts/application (Duration: 91.3ms | Allocations: 2300)
+  Rendered layout layouts/application.html.erb (Duration: 309.9ms | Allocations: 4900)
+Completed 200 OK in 438ms (Views: 341.6ms | ActiveRecord: 0.6ms | Allocations: 5854)
+
+
+Started GET "/users" for 172.17.0.1 at 2023-09-13 02:45:16 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 16)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered users/index.html.erb within layouts/application (Duration: 10.1ms | Allocations: 1501)
+  Rendered layout layouts/application.html.erb (Duration: 110.2ms | Allocations: 3697)
+Completed 200 OK in 135ms (Views: 111.2ms | ActiveRecord: 0.4ms | Allocations: 3990)
+
+
+Started GET "/users" for 172.17.0.1 at 2023-09-13 02:45:32 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/_user.html.erb (Duration: 8.7ms | Allocations: 155)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 16)
+  Rendered users/index.html.erb within layouts/application (Duration: 41.3ms | Allocations: 1982)
+  Rendered layout layouts/application.html.erb (Duration: 152.4ms | Allocations: 4562)
+Completed 200 OK in 217ms (Views: 171.0ms | ActiveRecord: 0.5ms | Allocations: 5501)
+
+
+Started GET "/users" for 172.17.0.1 at 2023-09-13 02:46:01 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/_user.html.erb (Duration: 13.7ms | Allocations: 155)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 16)
+  Rendered users/index.html.erb within layouts/application (Duration: 52.3ms | Allocations: 1985)
+  Rendered layout layouts/application.html.erb (Duration: 245.4ms | Allocations: 4565)
+Completed 200 OK in 354ms (Views: 272.1ms | ActiveRecord: 0.6ms | Allocations: 5526)
+
+
+Started GET "/users" for 172.17.0.1 at 2023-09-13 02:46:04 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 16)
+  Rendered users/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1270)
+  Rendered layout layouts/application.html.erb (Duration: 110.9ms | Allocations: 3466)
+Completed 200 OK in 141ms (Views: 111.6ms | ActiveRecord: 0.4ms | Allocations: 3759)
+
+
+Started GET "/users" for 172.17.0.1 at 2023-09-13 02:46:56 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered users/_user.html.erb (Duration: 28.5ms | Allocations: 155)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 16)
+  Rendered users/index.html.erb within layouts/application (Duration: 107.0ms | Allocations: 1983)
+  Rendered layout layouts/application.html.erb (Duration: 347.8ms | Allocations: 4563)
+Completed 200 OK in 484ms (Views: 383.6ms | ActiveRecord: 1.4ms | Allocations: 5502)
+
+
