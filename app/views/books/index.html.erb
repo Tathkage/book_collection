@@ -1,7 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Books</h1>
-<h1>This is a test version!</h1>
 
 <div id="books">
   <% @books.each do |book| %>
@@ -12,4 +11,4 @@
   <% end %>
 </div>
 
-<%= link_to "Add a Book", new_book_path %>
+<%= link_to "Back to Home Page", user_books_path %>

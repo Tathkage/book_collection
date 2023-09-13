@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :user_books do
+    resources :books
+  end
+  resources :users
   resources :books do
     member do
       get 'confirm_delete'
@@ -12,5 +16,5 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   # sets default landing page as "books"
-  root "books#index"
+  root "user_books#index"
 end

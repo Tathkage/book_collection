@@ -4,6 +4,7 @@
 
 <%= button_to "Delete", @book, method: :delete %>
 <div>
-    <%= link_to "Cancel", book_path(@book) %>
-    <%= link_to "Back to books", books_path %>
+    <%= link_to "Cancel", book_path(@book) %> |
+    <%= link_to "Back to books", books_path %> |
+    <%= link_to "Back to Home Page", user_books_path %>
 </div>
