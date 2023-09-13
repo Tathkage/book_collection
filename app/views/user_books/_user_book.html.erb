@@ -1,0 +1,11 @@
+<div id="<%= dom_id user_book %>">
+  <p>
+    <strong>User:</strong>
+    <%= link_to user_book.user.username, user_path(user_book.user) %>
+  </p>
+
+  <p>
+    <strong>Book:</strong>
+    <%= link_to user_book.book.title, book_path(user_book.book) %>
+  </p>
+</div>

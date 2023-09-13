@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  resources :books
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :user_books
+  resources :users
+  root 'user_books#index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+
+  resources :books do
+    member do
+      get 'confirm_delete'
+    end
+  end
+
 end

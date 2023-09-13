@@ -19,10 +19,18 @@ class BooksController < ApplicationController
   def edit
   end
 
+  # GET /books/1/confirm_delete
+  def confirm_delete
+    @book = Book.find(params[:id])
+    respond_to do |format|
+      format.html # Render the HTML template (confirm_delete.html.erb)
+    end
+  end
+
   # POST /books or /books.json
   def create
     @book = Book.new(book_params)
-
+  
     respond_to do |format|
       if @book.save
         format.html { redirect_to book_url(@book), notice: "Book was successfully created." }
@@ -65,6 +73,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title)
+      params.require(:book).permit(:title, :author, :price, :published_date)
     end
 end
